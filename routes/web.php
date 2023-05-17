@@ -3,7 +3,8 @@
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\RestaurantsController;
+use App\Http\Controllers\RestaurateurController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +21,10 @@ use App\Http\Controllers\AdminController;
 Route::get("/",[HomeController::class,"index"]);
 Route::get("/users",[AdminController::class,"user"]);
 Route::get("/deleteuser/{id}",[AdminController::class,"deleteuser"]);
-
-Route::get("redirects",[HomeController::class,"redirects"]);
+Route::get("/Restaurants",[RestaurantsController::class,"ts"]);
+Route::get("/Restaurateur",[RestaurateurController::class,"rgs"]);
+Route::get("/redirects",[HomeController::class,"redirects"]);
+Route::post("/RegisterRestaurant",[RestaurateurController::class,"UploadRestaurant"]);
 
 Route::middleware([
     'auth:sanctum',
